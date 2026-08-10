@@ -25,9 +25,10 @@
   --color-wa-green:    #25D366;
   --color-wa-dark:     #128C7E;
 
-  /* TIPOGRAFÍAS NUEVAS */
-  --font-display:      'Cormorant Garamond', Georgia, serif;
-  --font-body:         'Poppins', system-ui, -apple-system, sans-serif;
+  /* TIPOGRAFÍAS URBANAS + ELEGANTES */
+  --font-display:      'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-accent:       'Fraunces', Georgia, serif;
+  --font-body:         'Space Grotesk', system-ui, -apple-system, sans-serif;
 
   --radius-sm:         8px;
   --radius-md:         16px;
@@ -1860,4 +1861,185 @@ svg { display: block; }
   .hashtag__floating {
     display: none;
   }
+}
+/* ============================================
+   AJUSTES TIPOGRÁFICOS - MODERNO URBANO
+   ============================================ */
+
+/* HERO: Título principal más potente */
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.hero__title-line:first-child {
+  font-weight: 500;
+}
+.hero__title-line--accent {
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+/* Subtítulo del hero con acento elegante Fraunces */
+.hero__title-sub {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* SECCIONES: Títulos más urbanos */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* PHILOSOPHY: Mantener acento elegante en la palabra key */
+.philosophy__text {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+/* PRODUCTOS: Títulos con carácter urbano */
+.product-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+/* PERFILES: Mismo tratamiento urbano */
+.profile-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* PASOS: Números y títulos */
+.step__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.step__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* TESTIMONIOS: Quotes elegantes con Fraunces */
+.testimonial-card__text {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.testimonial-card__text::before {
+  font-family: var(--font-accent);
+  font-weight: 500;
+}
+.testimonial-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* HASHTAG: Título masivo urbano */
+.hashtag__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.hashtag__word--gold {
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* BENEFICIOS BANNER */
+.benefits__banner-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.benefits__banner-highlight {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* SERVICIOS */
+.service-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* FOOTER */
+.footer__tagline {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+.footer__col-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+.footer__campaign-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* QUIZ - Formulario más limpio */
+.quiz-field__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* BOTONES: Más peso urbano */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+.btn--whatsapp {
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+/* BADGES */
+.badge {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.section-tag {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+/* Hero stats */
+.hero__stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
