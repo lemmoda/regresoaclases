@@ -1306,25 +1306,37 @@ svg { display: block; }
   box-shadow: 0 12px 32px rgba(0,0,0,0.25);
 }
 
-/* ---- VISUAL DEL BANNER ---- */
+/* ---- VISUAL DEL BANNER (CORREGIDO) ---- */
 .benefits__banner-visual {
   position: relative;
-  height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
   z-index: 2;
+  align-items: center;
+  justify-items: center;
 }
+
 .benefits__visual-glow {
   position: absolute;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px; 
+  height: 320px;
+  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
   border-radius: 50%;
   z-index: 0;
+  pointer-events: none;
 }
+
 .benefits__visual-card {
-  position: absolute;
-  width: 90px; height: 90px;
+  position: relative;
+  width: 110px; 
+  height: 110px;
   background: var(--color-white);
   border-radius: var(--radius-md);
   display: flex;
@@ -1332,47 +1344,53 @@ svg { display: block; }
   justify-content: center;
   color: var(--color-green-dark);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  transition: transform var(--transition-med);
+  transition: transform var(--transition-med), box-shadow var(--transition-med);
   z-index: 1;
 }
 .benefits__visual-card svg {
-  width: 44px; height: 44px;
+  width: 50px; 
+  height: 50px;
 }
 .benefits__visual-card:hover {
-  transform: scale(1.1) rotate(0) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
   z-index: 5;
 }
+
+/* Cada tarjeta con su posición y animación única */
 .benefits__visual-card--1 {
-  top: 20px; left: 20%;
   transform: rotate(-8deg);
   animation: cardFloat1 4s ease-in-out infinite;
 }
 .benefits__visual-card--2 {
-  top: 40px; right: 20%;
   transform: rotate(8deg);
   animation: cardFloat2 4s ease-in-out infinite 0.5s;
 }
 .benefits__visual-card--3 {
-  bottom: 60px; left: 15%;
   transform: rotate(6deg);
   animation: cardFloat1 4s ease-in-out infinite 1s;
 }
 .benefits__visual-card--4 {
-  bottom: 30px; right: 15%;
-  width: 110px; height: 110px;
+  width: 125px; 
+  height: 125px;
   transform: rotate(-6deg);
   background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
   color: var(--color-white);
   animation: cardFloat2 4s ease-in-out infinite 1.5s;
+  box-shadow: 0 20px 40px rgba(160,130,74,0.4);
 }
-.benefits__visual-card--4 svg { width: 54px; height: 54px; }
+.benefits__visual-card--4 svg { 
+  width: 58px; 
+  height: 58px; 
+}
+
 @keyframes cardFloat1 {
   0%, 100% { transform: rotate(-8deg) translateY(0); }
-  50%      { transform: rotate(-8deg) translateY(-10px); }
+  50%      { transform: rotate(-8deg) translateY(-12px); }
 }
 @keyframes cardFloat2 {
   0%, 100% { transform: rotate(8deg) translateY(0); }
-  50%      { transform: rotate(8deg) translateY(-10px); }
+  50%      { transform: rotate(8deg) translateY(-12px); }
 }
 
 /* ---- BARRA DE 3 SERVICIOS ---- */
@@ -1439,20 +1457,42 @@ svg { display: block; }
     padding: 50px 40px;
     text-align: center;
   }
-  .benefits__banner-desc { margin-left: auto; margin-right: auto; }
+  .benefits__banner-desc { 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
   .benefits__banner-visual {
-    height: 260px;
+    min-height: 300px;
     margin-top: 20px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .benefits__services { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .benefits__banner { padding: 40px 24px; }
-  .benefits__banner-visual { height: 240px; }
-  .benefits__visual-card { width: 70px; height: 70px; }
-  .benefits__visual-card svg { width: 34px; height: 34px; }
-  .benefits__visual-card--4 { width: 85px; height: 85px; }
-  .benefits__visual-card--4 svg { width: 42px; height: 42px; }
+  .benefits__banner-visual { 
+    min-height: 280px;
+    gap: 14px;
+    padding: 10px;
+  }
+  .benefits__visual-card { 
+    width: 90px; 
+    height: 90px; 
+  }
+  .benefits__visual-card svg { 
+    width: 40px; 
+    height: 40px; 
+  }
+  .benefits__visual-card--4 { 
+    width: 100px; 
+    height: 100px; 
+  }
+  .benefits__visual-card--4 svg { 
+    width: 46px; 
+    height: 46px; 
+  }
   .service-card { padding: 20px; }
   .service-card__icon-wrap { width: 48px; height: 48px; }
   .service-card__icon { width: 24px; height: 24px; }
