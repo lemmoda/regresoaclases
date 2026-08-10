@@ -98,41 +98,43 @@ const initProfileCards = () => {
 
 // ---- PREVIEW ----
 const updateMessagePreview = () => {
-  const perfilRadio = document.querySelector('input[name="perfil"]:checked');
-  const buscaRadio  = document.querySelector('input[name="busca"]:checked');
-  const tallaInput  = document.getElementById('talla');
-  const previewEl   = document.getElementById('previewText');
+  const perfilRadio       = document.querySelector('input[name="perfil"]:checked');
+  const buscaRadio        = document.querySelector('input[name="busca"]:checked');
+  const tallaInput        = document.getElementById('talla');
+  const presupuestoRadio  = document.querySelector('input[name="presupuesto"]:checked');
+  const previewEl         = document.getElementById('previewText');
   if (!previewEl) return;
 
-  const perfil = perfilRadio?.value || '___';
-  const busca  = buscaRadio?.value  || '___';
-  const talla  = tallaInput?.value?.trim() || '___';
+  const perfil       = perfilRadio?.value || '___';
+  const busca        = buscaRadio?.value  || '___';
+  const talla        = tallaInput?.value?.trim() || '___';
+  const presupuesto  = presupuestoRadio?.value || '___';
 
-  const hasAny = perfilRadio || buscaRadio || tallaInput?.value?.trim();
+  const hasAny = perfilRadio || buscaRadio || tallaInput?.value?.trim() || presupuestoRadio;
   if (!hasAny) {
     previewEl.innerHTML = '<em>Completa las preguntas para ver tu mensaje personalizado...</em>';
     return;
   }
-  const message = buildMessage(perfil, busca, talla);
+  const message = buildMessage(perfil, busca, talla, presupuesto);
   previewEl.innerHTML = message.replace(/\n/g, '<br>').replace(/\*([^*]+)\*/g, '<strong>$1</strong>');
 };
 
-// ---- MENSAJE ----
-const buildMessage = (perfil, busca, talla) => {
-  return `Hola, equipo de ${CONFIG.BRAND_NAME}
+// ---- MENSAJE DE IMPACTO ----
+const buildMessage = (perfil, busca, talla, presupuesto) => {
+  return `Hola equipo *${CONFIG.BRAND_NAME}* 
 
-Vengo por la campaña *${CONFIG.CAMPAIGN_NAME}* y quiero prepararme para el nuevo ciclo con estilo.
+Vi su campaña *${CONFIG.CAMPAIGN_NAME}* y me identifiqué con la filosofía de la hormiga: constancia, esfuerzo y elegancia. Quiero ser parte de esa comunidad y renovar mi estilo para este nuevo ciclo.
 
-Mis datos:
-1. Perfil: *${perfil}*
-2. Producto de interés: *${busca}*
-3. Talla / Complexión: *${talla}*
+Aquí mis datos para que me armen la mejor propuesta:
 
-Quedo atento(a) a su asesoría. ¡Gracias!`;
-};
+• *Perfil:* ${perfil}
+• *Producto de interés:* ${busca}
+• *Talla / Complexión:* ${talla}
+• *Presupuesto:* ${presupuesto}
 
-const generateWhatsAppLink = (message) => {
-  return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+Confío en su asesoría personalizada. Quedo atento(a) a las opciones que me recomienden.
+
+¡Gracias por hacer que cada prenda cuente!`;
 };
 
 // ---- VALIDACIÓN ----
@@ -159,6 +161,14 @@ const validateForm = () => {
     if (tallaError) tallaError.textContent = '';
     tallaInput?.classList.remove('error');
   }
+
+  const presupuestoRadio = document.querySelector('input[name="presupuesto"]:checked');
+  const presupuestoError = document.getElementById('presupuesto-error');
+  if (!presupuestoRadio) { 
+    if (presupuestoError) presupuestoError.textContent = 'Por favor indica tu presupuesto.'; 
+    isValid = false; 
+  } else if (presupuestoError) presupuestoError.textContent = '';
+
   return isValid;
 };
 
@@ -184,11 +194,12 @@ const initForm = () => {
       firstError?.closest('.quiz-field')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
-    const perfil = document.querySelector('input[name="perfil"]:checked').value;
-    const busca  = document.querySelector('input[name="busca"]:checked').value;
-    const talla  = tallaInput.value.trim();
+    const perfil       = document.querySelector('input[name="perfil"]:checked').value;
+    const busca        = document.querySelector('input[name="busca"]:checked').value;
+    const talla        = tallaInput.value.trim();
+    const presupuesto  = document.querySelector('input[name="presupuesto"]:checked').value;
 
-    const link = generateWhatsAppLink(buildMessage(perfil, busca, talla));
+    const link = generateWhatsAppLink(buildMessage(perfil, busca, talla, presupuesto));
 
     const btn = document.getElementById('whatsappBtn');
     if (btn) {
@@ -200,7 +211,6 @@ const initForm = () => {
     window.open(link, '_blank', 'noopener,noreferrer');
   });
 };
-
 // ---- HEADER SCROLL ----
 const initHeaderScroll = () => {
   const header = document.querySelector('.header');
