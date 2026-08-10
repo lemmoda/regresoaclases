@@ -77,18 +77,14 @@ const initProfileCards = () => {
   cards.forEach(card => {
     card.addEventListener('click', () => {
       const profileValue = card.dataset.profile;
-      // Buscar el radio button correspondiente en el formulario
       const radio = document.querySelector(`input[name="perfil"][value="${profileValue}"]`);
       if (radio) {
-        // Marcar el radio y actualizar la UI del formulario
         const option = radio.closest('.quiz-option');
         selectOption(option, radio);
 
-        // Feedback visual en la tarjeta
         card.classList.add('pulse-selected');
         setTimeout(() => card.classList.remove('pulse-selected'), 600);
 
-        // Scroll suave al formulario
         setTimeout(() => {
           const cuestionario = document.getElementById('cuestionario');
           if (cuestionario) {
@@ -123,16 +119,16 @@ const updateMessagePreview = () => {
 
 // ---- MENSAJE ----
 const buildMessage = (perfil, busca, talla) => {
-  return `Hola, equipo de ${CONFIG.BRAND_NAME} 🌿
+  return `Hola, equipo de ${CONFIG.BRAND_NAME}
 
 Vengo por la campaña *${CONFIG.CAMPAIGN_NAME}* y quiero prepararme para el nuevo ciclo con estilo.
 
-📋 Mis datos:
+Mis datos:
 1. Perfil: *${perfil}*
 2. Producto de interés: *${busca}*
 3. Talla / Complexión: *${talla}*
 
-Quedo atento(a) a su asesoría. ¡Gracias! 🐜✨`;
+Quedo atento(a) a su asesoría. ¡Gracias!`;
 };
 
 const generateWhatsAppLink = (message) => {
@@ -145,18 +141,18 @@ const validateForm = () => {
 
   const perfilRadio = document.querySelector('input[name="perfil"]:checked');
   const perfilError = document.getElementById('perfil-error');
-  if (!perfilRadio) { if (perfilError) perfilError.textContent = '⚠️ Selecciona tu perfil.'; isValid = false; }
+  if (!perfilRadio) { if (perfilError) perfilError.textContent = 'Por favor selecciona tu perfil.'; isValid = false; }
   else if (perfilError) perfilError.textContent = '';
 
   const buscaRadio = document.querySelector('input[name="busca"]:checked');
   const buscaError = document.getElementById('busca-error');
-  if (!buscaRadio) { if (buscaError) buscaError.textContent = '⚠️ Elige qué producto te interesa.'; isValid = false; }
+  if (!buscaRadio) { if (buscaError) buscaError.textContent = 'Por favor elige qué producto te interesa.'; isValid = false; }
   else if (buscaError) buscaError.textContent = '';
 
   const tallaInput = document.getElementById('talla');
   const tallaError = document.getElementById('talla-error');
   if (!tallaInput?.value?.trim()) {
-    if (tallaError) tallaError.textContent = '⚠️ Ingresa tu talla o complexión.';
+    if (tallaError) tallaError.textContent = 'Por favor ingresa tu talla o complexión.';
     tallaInput?.classList.add('error');
     isValid = false;
   } else {
@@ -197,7 +193,7 @@ const initForm = () => {
     const btn = document.getElementById('whatsappBtn');
     if (btn) {
       const originalHTML = btn.innerHTML;
-      btn.innerHTML = '✅ ¡Abriendo WhatsApp...';
+      btn.innerHTML = '¡Abriendo WhatsApp...';
       btn.disabled = true;
       setTimeout(() => { btn.innerHTML = originalHTML; btn.disabled = false; }, 2500);
     }
@@ -231,10 +227,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(`
   ╔════════════════════════════════════════╗
-  ║  🌿 LEM MODA | NUEVO CICLO 2026 🐜    ║
-  ║  ✅ WhatsApp: +593 98 490 9967        ║
-  ║  🎒 Regreso a Clases 2026 activo      ║
-  ║  ✨ Página cargada correctamente      ║
+  ║   LEM MODA | NUEVO CICLO 2026         ║
+  ║   WhatsApp: +593 98 490 9967          ║
+  ║   Instagram: @lemmoda.ec              ║
+  ║   TikTok: @lem.moda                   ║
+  ║   Facebook: LEM MODA EC               ║
+  ║   Página cargada correctamente        ║
   ╚════════════════════════════════════════╝
   `);
 });
