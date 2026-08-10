@@ -158,6 +158,33 @@
       <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </symbol>
+            <!-- Tarjeta de crédito -->
+      <symbol id="icon-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <line x1="2" y1="10" x2="22" y2="10"/>
+        <line x1="6" y1="15" x2="10" y2="15"/>
+        <line x1="14" y1="15" x2="16" y2="15"/>
+      </symbol>
+      <!-- Camión / Envío -->
+      <symbol id="icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="6" width="14" height="11" rx="1"/>
+        <path d="M15 9h4l3 3v5h-7V9z"/>
+        <circle cx="6" cy="19" r="2"/>
+        <circle cx="18" cy="19" r="2"/>
+      </symbol>
+      <!-- Tienda -->
+      <symbol id="icon-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l2-5h14l2 5"/>
+        <path d="M4 9v11a1 1 0 001 1h14a1 1 0 001-1V9"/>
+        <path d="M3 9c0 1.5 1.5 3 3 3s3-1.5 3-3c0 1.5 1.5 3 3 3s3-1.5 3-3c0 1.5 1.5 3 3 3s3-1.5 3-3"/>
+        <path d="M10 21v-5h4v5"/>
+      </symbol>
+      <!-- Dinero / Presupuesto -->
+      <symbol id="icon-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="6" width="20" height="12" rx="2"/>
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M6 12h.01M18 12h.01"/>
+      </symbol>
       <!-- Corazón -->
       <symbol id="icon-heart" viewBox="0 0 24 24" fill="currentColor">
         <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
@@ -250,6 +277,92 @@
       </a>
     </section>
 
+    <!-- ==================== BENEFICIOS BANNER ==================== -->
+    <section class="benefits" id="beneficios" aria-labelledby="benefits-title">
+      <div class="container">
+        
+        <!-- Banner principal -->
+        <div class="benefits__banner">
+          <div class="benefits__banner-bg" aria-hidden="true">
+            <div class="benefits__spark benefits__spark--1"></div>
+            <div class="benefits__spark benefits__spark--2"></div>
+            <div class="benefits__spark benefits__spark--3"></div>
+          </div>
+
+          <div class="benefits__banner-content">
+            <div class="benefits__banner-tag">
+              <svg class="benefits__banner-tag-icon"><use href="#icon-sparkle"/></svg>
+              <span>Equípate para el nuevo ciclo</span>
+              <svg class="benefits__banner-tag-icon"><use href="#icon-sparkle"/></svg>
+            </div>
+            <h2 class="benefits__banner-title" id="benefits-title">
+              Todo lo que necesitas.<br>
+              <span class="benefits__banner-highlight">En un solo lugar.</span>
+            </h2>
+            <p class="benefits__banner-desc">
+              Descubre nuestra colección pensada para cada etapa de tu vida escolar y universitaria. 
+              Prendas que te acompañan del aula al gimnasio, del estudio a la calle.
+            </p>
+            <a href="#productos" class="btn btn--primary">
+              <svg class="btn__icon"><use href="#icon-bag"/></svg>
+              Arma tu kit
+              <svg class="btn__arrow"><use href="#icon-arrow"/></svg>
+            </a>
+          </div>
+
+          <div class="benefits__banner-visual">
+            <div class="benefits__visual-card benefits__visual-card--1">
+              <svg><use href="#icon-hoodie"/></svg>
+            </div>
+            <div class="benefits__visual-card benefits__visual-card--2">
+              <svg><use href="#icon-tshirt"/></svg>
+            </div>
+            <div class="benefits__visual-card benefits__visual-card--3">
+              <svg><use href="#icon-pants"/></svg>
+            </div>
+            <div class="benefits__visual-card benefits__visual-card--4">
+              <svg><use href="#icon-gift"/></svg>
+            </div>
+            <div class="benefits__visual-glow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Barra de 3 servicios -->
+        <div class="benefits__services">
+          <article class="service-card">
+            <div class="service-card__icon-wrap">
+              <svg class="service-card__icon"><use href="#icon-card"/></svg>
+            </div>
+            <div class="service-card__content">
+              <span class="service-card__label">FORMAS DE PAGO</span>
+              <h3 class="service-card__title">Aceptamos todas las tarjetas</h3>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon-wrap">
+              <svg class="service-card__icon"><use href="#icon-truck"/></svg>
+            </div>
+            <div class="service-card__content">
+              <span class="service-card__label">DELIVERY</span>
+              <h3 class="service-card__title">Envíos a todo el Ecuador</h3>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon-wrap">
+              <svg class="service-card__icon"><use href="#icon-store"/></svg>
+            </div>
+            <div class="service-card__content">
+              <span class="service-card__label">RETIRO</span>
+              <h3 class="service-card__title">Retira en tienda sin costo</h3>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+    
     <!-- ==================== FILOSOFÍA ==================== -->
     <section class="philosophy" id="filosofia" aria-labelledby="phil-title">
       <div class="container">
@@ -638,6 +751,40 @@
               </span>
               <span class="quiz-field__error" id="talla-error" role="alert"></span>
             </div>
+                        <!-- Pregunta 4: Presupuesto -->
+            <fieldset class="quiz-field">
+              <legend class="quiz-field__label">
+                <span class="quiz-field__number">04</span>
+                ¿Cuál es tu presupuesto?
+                <span class="quiz-field__required">*</span>
+              </legend>
+              <div class="quiz-options quiz-options--grid">
+                <label class="quiz-option">
+                  <input type="radio" name="presupuesto" value="$20 - $40 USD" required />
+                  <svg class="quiz-option__icon"><use href="#icon-money"/></svg>
+                  <span class="quiz-option__text">$20 - $40</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="presupuesto" value="$40 - $80 USD" />
+                  <svg class="quiz-option__icon"><use href="#icon-money"/></svg>
+                  <span class="quiz-option__text">$40 - $80</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="presupuesto" value="$80 - $150 USD" />
+                  <svg class="quiz-option__icon"><use href="#icon-money"/></svg>
+                  <span class="quiz-option__text">$80 - $150</span>
+                </label>
+                <label class="quiz-option quiz-option--highlight">
+                  <input type="radio" name="presupuesto" value="Más de $150 USD (kit familiar)" />
+                  <svg class="quiz-option__icon"><use href="#icon-money"/></svg>
+                  <span class="quiz-option__text">Más de $150</span>
+                </label>
+              </div>
+              <span class="quiz-field__hint">
+                Nos ayuda a recomendarte las mejores opciones dentro de tu rango.
+              </span>
+              <span class="quiz-field__error" id="presupuesto-error" role="alert"></span>
+            </fieldset>
 
             <!-- Preview -->
             <div class="message-preview" aria-live="polite">
