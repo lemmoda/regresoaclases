@@ -2047,3 +2047,234 @@ svg { display: block; }
     transition-duration: 0.01ms !important;
   }
 }
+/* ============================================
+   SELECCIÓN MÚLTIPLE - "¿Qué te interesa?"
+   ============================================ */
+
+/* Badge "Puedes elegir varios" */
+.quiz-field__multi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-green-dark);
+  background: rgba(111,180,63,0.12);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-left: auto;
+  border: 1px solid rgba(111,180,63,0.25);
+}
+
+/* Opciones múltiples: espacio para el checkmark */
+.quiz-options--multi .quiz-option {
+  position: relative;
+  padding-right: 44px;
+}
+
+/* Checkmark circle (top-right) */
+.quiz-option__check {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%) scale(0.6);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  opacity: 0;
+  transition: all var(--transition-med);
+  flex-shrink: 0;
+}
+.quiz-option__check svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+/* Hover: muestra el círculo vacío */
+.quiz-options--multi .quiz-option:hover .quiz-option__check {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  border-color: var(--color-green-light);
+}
+
+/* SELECCIONADO: checkmark verde con animación */
+.quiz-options--multi .quiz-option.selected {
+  background: linear-gradient(180deg, rgba(111,180,63,0.12), var(--color-white));
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(111,180,63,0.15), 0 6px 20px rgba(111,180,63,0.15);
+  transform: translateY(-2px);
+}
+.quiz-options--multi .quiz-option.selected .quiz-option__check {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  background: var(--color-green);
+  border-color: var(--color-green);
+  animation: checkPop 0.35s ease;
+}
+.quiz-options--multi .quiz-option.selected .quiz-option__icon {
+  color: var(--color-green-dark);
+}
+.quiz-options--multi .quiz-option.selected .quiz-option__text {
+  color: var(--color-green-dark);
+  font-weight: 600;
+}
+
+/* Highlight seleccionado (conjunto completo) */
+.quiz-options--multi .quiz-option--highlight.selected {
+  background: linear-gradient(180deg, rgba(201,165,102,0.15), var(--color-white));
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201,165,102,0.2), 0 6px 20px rgba(201,165,102,0.2);
+}
+.quiz-options--multi .quiz-option--highlight.selected .quiz-option__check {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* Animación pop del checkmark */
+@keyframes checkPop {
+  0%   { transform: translateY(-50%) scale(0.6); }
+  60%  { transform: translateY(-50%) scale(1.25); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+/* Contador de seleccionados (opcional, visual) */
+.quiz-field__counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-green-dark);
+  margin-left: 8px;
+}
+.quiz-field__counter-num {
+  background: var(--color-green);
+  color: var(--color-white);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Responsive: badge se ajusta */
+@media (max-width: 480px) {
+  .quiz-field__multi-badge {
+    margin-left: 0;
+    font-size: 0.62rem;
+    padding: 3px 8px;
+  }
+  .quiz-options--multi .quiz-option {
+    padding-right: 40px;
+  }
+  .quiz-option__check {
+    right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}
+/* ============================================
+   CONTADOR DE SELECCIONADOS
+   ============================================ */
+
+/* Contenedor del contador */
+.quiz-field__counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-green-dark);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all var(--transition-med);
+  pointer-events: none;
+  margin-left: 4px;
+}
+
+/* Estado activo: al menos 1 seleccionado */
+.quiz-field__counter.is-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Número del contador (badge circular verde) */
+.quiz-field__counter-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+  color: var(--color-white);
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  box-shadow: 0 3px 10px rgba(111,180,63,0.35);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Texto "productos" */
+.quiz-field__counter-text {
+  color: var(--color-green-dark);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* Animación pop cuando cambia el número */
+.quiz-field__counter.is-pop .quiz-field__counter-num {
+  animation: counterPop 0.35s ease;
+}
+@keyframes counterPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); box-shadow: 0 6px 20px rgba(111,180,63,0.6); }
+  100% { transform: scale(1); }
+}
+
+/* Cambio de color al llegar a 3+ (gold accent) */
+.quiz-field__counter.is-many .quiz-field__counter-num {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+  box-shadow: 0 3px 10px rgba(201,165,102,0.4);
+}
+.quiz-field__counter.is-many .quiz-field__counter-text {
+  color: var(--color-gold-dark);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .quiz-field__counter {
+    margin-left: 0;
+    font-size: 0.7rem;
+  }
+  .quiz-field__counter-num {
+    min-width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+  .quiz-field__counter-text {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* En móvil, el badge y contador se ven mejor en línea nueva */
+  .quiz-field__label {
+    align-items: flex-start;
+  }
+}
