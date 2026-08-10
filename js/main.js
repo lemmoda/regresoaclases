@@ -1,12 +1,12 @@
 /* ============================================
-   LEM MODA | NUEVO CICLO - REGRESO A CLASES
+   LEM MODA | NUEVO CICLO 2026
    ============================================ */
 
 'use strict';
 
 const CONFIG = {
-  WHATSAPP_NUMBER: '593984909967',   // ✅ Tu número: +593 98 490 9967
-  CAMPAIGN_NAME:   'NUEVO CICLO - Regreso a Clases',
+  WHATSAPP_NUMBER: '593984909967',
+  CAMPAIGN_NAME:   'NUEVO CICLO - Regreso a Clases 2026',
   BRAND_NAME:      'LEM MODA',
 };
 
@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
 // ---- SCROLL ANIMATIONS ----
 const observeElements = () => {
   const elements = document.querySelectorAll(
-    '.step, .profile-card, .testimonial-card, .section-header, .quiz-card, .philosophy__grid'
+    '.step, .profile-card, .product-card, .testimonial-card, .section-header, .quiz-card, .philosophy__grid'
   );
   elements.forEach(el => el.classList.add('animate-on-scroll'));
 
@@ -32,7 +32,7 @@ const observeElements = () => {
     (entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
           observer.unobserve(entry.target);
         }
       });
@@ -47,22 +47,56 @@ const initQuizOptions = () => {
   const options = document.querySelectorAll('.quiz-option');
   options.forEach(option => {
     const input = option.querySelector('input[type="radio"]');
-    option.addEventListener('click', () => {
-      const groupName = input.name;
-      document.querySelectorAll(`input[name="${groupName}"]`).forEach(radio => {
-        radio.closest('.quiz-option')?.classList.remove('selected');
-      });
-      input.checked = true;
-      option.classList.add('selected');
-      const errorEl = document.getElementById(`${groupName}-error`);
-      if (errorEl) errorEl.textContent = '';
-      updateMessagePreview();
-    });
+    option.addEventListener('click', () => selectOption(option, input));
     option.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); option.click(); }
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        option.click();
+      }
     });
     option.setAttribute('tabindex', '0');
     option.setAttribute('role', 'radio');
+  });
+};
+
+const selectOption = (option, input) => {
+  const groupName = input.name;
+  document.querySelectorAll(`input[name="${groupName}"]`).forEach(radio => {
+    radio.closest('.quiz-option')?.classList.remove('selected');
+  });
+  input.checked = true;
+  option.classList.add('selected');
+  const errorEl = document.getElementById(`${groupName}-error`);
+  if (errorEl) errorEl.textContent = '';
+  updateMessagePreview();
+};
+
+// ---- TARJETAS DE PERFIL CLICKEABLES ----
+const initProfileCards = () => {
+  const cards = document.querySelectorAll('.profile-card[data-profile]');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const profileValue = card.dataset.profile;
+      // Buscar el radio button correspondiente en el formulario
+      const radio = document.querySelector(`input[name="perfil"][value="${profileValue}"]`);
+      if (radio) {
+        // Marcar el radio y actualizar la UI del formulario
+        const option = radio.closest('.quiz-option');
+        selectOption(option, radio);
+
+        // Feedback visual en la tarjeta
+        card.classList.add('pulse-selected');
+        setTimeout(() => card.classList.remove('pulse-selected'), 600);
+
+        // Scroll suave al formulario
+        setTimeout(() => {
+          const cuestionario = document.getElementById('cuestionario');
+          if (cuestionario) {
+            cuestionario.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 400);
+      }
+    });
   });
 };
 
@@ -95,7 +129,7 @@ Vengo por la campaña *${CONFIG.CAMPAIGN_NAME}* y quiero prepararme para el nuev
 
 📋 Mis datos:
 1. Perfil: *${perfil}*
-2. Busco: *${busca}*
+2. Producto de interés: *${busca}*
 3. Talla / Complexión: *${talla}*
 
 Quedo atento(a) a su asesoría. ¡Gracias! 🐜✨`;
@@ -116,7 +150,7 @@ const validateForm = () => {
 
   const buscaRadio = document.querySelector('input[name="busca"]:checked');
   const buscaError = document.getElementById('busca-error');
-  if (!buscaRadio) { if (buscaError) buscaError.textContent = '⚠️ Indica qué buscas.'; isValid = false; }
+  if (!buscaRadio) { if (buscaError) buscaError.textContent = '⚠️ Elige qué producto te interesa.'; isValid = false; }
   else if (buscaError) buscaError.textContent = '';
 
   const tallaInput = document.getElementById('talla');
@@ -190,15 +224,17 @@ const initHeaderScroll = () => {
 document.addEventListener('DOMContentLoaded', () => {
   observeElements();
   initQuizOptions();
+  initProfileCards();
   initForm();
   initHeaderScroll();
   updateMessagePreview();
 
   console.log(`
   ╔════════════════════════════════════════╗
-  ║   🌿 LEM MODA | NUEVO CICLO 2025 🐜   ║
-  ║   ✅ WhatsApp: +593 98 490 9967       ║
-  ║   ✨ Página cargada correctamente     ║
+  ║  🌿 LEM MODA | NUEVO CICLO 2026 🐜    ║
+  ║  ✅ WhatsApp: +593 98 490 9967        ║
+  ║  🎒 Regreso a Clases 2026 activo      ║
+  ║  ✨ Página cargada correctamente      ║
   ╚════════════════════════════════════════╝
   `);
 });
