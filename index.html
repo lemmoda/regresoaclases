@@ -778,57 +778,102 @@
               <span class="quiz-field__error" id="perfil-error" role="alert"></span>
             </fieldset>
 
-            <!-- Pregunta 2 -->
-            <fieldset class="quiz-field">
-              <legend class="quiz-field__label">
-                <span class="quiz-field__number">02</span>
-                ¿Qué te interesa?
-                <span class="quiz-field__required">*</span>
-              </legend>
-              <div class="quiz-options quiz-options--grid">
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Hoodie" required />
-                  <svg class="quiz-option__icon"><use href="#icon-hoodie"/></svg>
-                  <span class="quiz-option__text">Hoodie</span>
-                </label>
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Chompa con cierre" />
-                  <svg class="quiz-option__icon"><use href="#icon-jacket"/></svg>
-                  <span class="quiz-option__text">Chompa con cierre</span>
-                </label>
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Pantalón de calentador" />
-                  <svg class="quiz-option__icon"><use href="#icon-pants"/></svg>
-                  <span class="quiz-option__text">Pantalón calentador</span>
-                </label>
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Camiseta básica" />
-                  <svg class="quiz-option__icon"><use href="#icon-tshirt"/></svg>
-                  <span class="quiz-option__text">Camiseta básica</span>
-                </label>
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Camiseta de mujer" />
-                  <svg class="quiz-option__icon"><use href="#icon-blouse"/></svg>
-                  <span class="quiz-option__text">Camiseta de mujer</span>
-                </label>
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Bividí" />
-                  <svg class="quiz-option__icon"><use href="#icon-tank"/></svg>
-                  <span class="quiz-option__text">Bividí</span>
-                </label>
-                <label class="quiz-option">
-                  <input type="radio" name="busca" value="Buso (hombre o mujer)" />
-                  <svg class="quiz-option__icon"><use href="#icon-sweater"/></svg>
-                  <span class="quiz-option__text">Buso</span>
-                </label>
-                <label class="quiz-option quiz-option--highlight">
-                  <input type="radio" name="busca" value="Conjunto completo" />
-                  <svg class="quiz-option__icon"><use href="#icon-gift"/></svg>
-                  <span class="quiz-option__text">Conjunto completo</span>
-                </label>
-              </div>
-              <span class="quiz-field__error" id="busca-error" role="alert"></span>
-            </fieldset>
+            <!-- Pregunta 2 - SELECCIÓN MÚLTIPLE -->
+<fieldset class="quiz-field">
+<legend class="quiz-field__label">
+  <span class="quiz-field__number">02</span>
+  ¿Qué te interesa?
+  <span class="quiz-field__required">*</span>
+  <span class="quiz-field__multi-badge">Puedes elegir varios</span>
+  <span class="quiz-field__counter" id="buscaCounter" aria-live="polite">
+    <span class="quiz-field__counter-num" id="buscaCounterNum">0</span>
+    <span class="quiz-field__counter-text" id="buscaCounterText">productos</span>
+  </span>
+</legend>
+  <div class="quiz-options quiz-options--grid quiz-options--multi">
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Hoodie" />
+      <svg class="quiz-option__icon"><use href="#icon-hoodie"/></svg>
+      <span class="quiz-option__text">Hoodie</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Chompa con cierre" />
+      <svg class="quiz-option__icon"><use href="#icon-jacket"/></svg>
+      <span class="quiz-option__text">Chompa con cierre</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Pantalón de calentador" />
+      <svg class="quiz-option__icon"><use href="#icon-pants"/></svg>
+      <span class="quiz-option__text">Pantalón calentador</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Camiseta básica" />
+      <svg class="quiz-option__icon"><use href="#icon-tshirt"/></svg>
+      <span class="quiz-option__text">Camiseta básica</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Camiseta de mujer" />
+      <svg class="quiz-option__icon"><use href="#icon-blouse"/></svg>
+      <span class="quiz-option__text">Camiseta de mujer</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Bividí" />
+      <svg class="quiz-option__icon"><use href="#icon-tank"/></svg>
+      <span class="quiz-option__text">Bividí</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option">
+      <input type="checkbox" name="busca" value="Buso (hombre o mujer)" />
+      <svg class="quiz-option__icon"><use href="#icon-sweater"/></svg>
+      <span class="quiz-option__text">Buso</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+    <label class="quiz-option quiz-option--highlight">
+      <input type="checkbox" name="busca" value="Conjunto completo" />
+      <svg class="quiz-option__icon"><use href="#icon-gift"/></svg>
+      <span class="quiz-option__text">Conjunto completo</span>
+      <span class="quiz-option__check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </span>
+    </label>
+  </div>
+  <span class="quiz-field__error" id="busca-error" role="alert"></span>
+</fieldset>
 
             <!-- Pregunta 3 -->
             <div class="quiz-field">
