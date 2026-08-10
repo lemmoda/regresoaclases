@@ -6,7 +6,7 @@
 
 const CONFIG = {
   WHATSAPP_NUMBER: '593984909967',
-  CAMPAIGN_NAME:   'NUEVO CICLO - Regreso a Clases 2026',
+  CAMPAIGN_NAME:   'NUEVO CICLO - Regreso a Clases 2026-2027',
   BRAND_NAME:      'LEM MODA',
 };
 
@@ -244,9 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   updateMessagePreview();
 
-  console.log(`
+ console.log(`
   ╔════════════════════════════════════════╗
-  ║   LEM MODA | NUEVO CICLO 2026         ║
+  ║   LEM MODA | NUEVO CICLO 2026-2027    ║
   ║   WhatsApp: +593 98 490 9967          ║
   ║   Instagram: @lemmoda.ec              ║
   ║   TikTok: @lem.moda                   ║
