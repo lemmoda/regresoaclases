@@ -2333,8 +2333,8 @@ svg { display: block; }
   flex-wrap: wrap;
 }
 /* ============================================
-   🐜 LEM MODA — SISTEMA PREMIUM v4
-   Nivel: Agencia top mundial
+   🐜 LEM MODA — SISTEMA PREMIUM v5 FINAL
+   Centrado perfecto + Hormigas sin invadir
    ============================================ */
 
 /* ============================================
@@ -2358,6 +2358,18 @@ svg { display: block; }
 }
 
 /* ============================================
+   FIX CRÍTICO: Contenido del Hero SIEMPRE centrado
+   ============================================ */
+.hero__content {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* ============================================
    BASE PREMIUM
    ============================================ */
 .lem-sticker,
@@ -2369,16 +2381,10 @@ svg { display: block; }
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
+.lem-sticker { z-index: 1; }
+.lem-mascot { z-index: 2; }
 
-.lem-sticker {
-  z-index: 1;
-}
-
-.lem-mascot {
-  z-index: 2;
-}
-
-/* Contenedor con glow aura detrás */
+/* Aura luminosa detrás */
 .lem-sticker::before,
 .lem-mascot::before {
   content: '';
@@ -2394,13 +2400,12 @@ svg { display: block; }
   animation: auraGlow 4s ease-in-out infinite;
   filter: blur(20px);
 }
-
 @keyframes auraGlow {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50%      { opacity: 0.7; transform: scale(1.08); }
 }
 
-/* Imagen: crisp + drop-shadow premium multicapa */
+/* Imagen: sombras premium multicapa */
 .lem-sticker img,
 .lem-mascot img {
   width: 100%;
@@ -2408,10 +2413,6 @@ svg { display: block; }
   display: block;
   user-select: none;
   -webkit-user-drag: none;
-  -webkit-filter: 
-    drop-shadow(0 4px 6px rgba(0, 0, 0, 0.12))
-    drop-shadow(0 12px 24px rgba(78, 139, 42, 0.18))
-    drop-shadow(0 20px 40px rgba(92, 58, 30, 0.15));
   filter: 
     drop-shadow(0 4px 6px rgba(0, 0, 0, 0.12))
     drop-shadow(0 12px 24px rgba(78, 139, 42, 0.18))
@@ -2421,7 +2422,6 @@ svg { display: block; }
 
 /* ============================================
    🎬 HERO — Sticker peace-sign
-   Esquina superior izquierda | Aura verde
    ============================================ */
 .lem-sticker--hero-top {
   width: 170px;
@@ -2439,8 +2439,7 @@ svg { display: block; }
 }
 
 /* ============================================
-   💚 HASHTAG — Sticker (fondo verde oscuro)
-   Esquina inferior derecha | Aura dorada intensa
+   💚 HASHTAG — Sticker
    ============================================ */
 .lem-sticker--hashtag {
   width: 170px;
@@ -2467,7 +2466,6 @@ svg { display: block; }
 
 /* ============================================
    🌿 FILOSOFÍA — Sticker
-   Esquina inferior derecha | Aura marrón cálida
    ============================================ */
 .lem-sticker--philosophy {
   width: 170px;
@@ -2487,7 +2485,6 @@ svg { display: block; }
 
 /* ============================================
    🛍️ PRODUCTOS — Sticker
-   Esquina inferior izquierda | Aura dorada
    ============================================ */
 .lem-sticker--products {
   width: 170px;
@@ -2507,7 +2504,6 @@ svg { display: block; }
 
 /* ============================================
    ⚙️ CÓMO FUNCIONA — Sticker
-   Esquina inferior izquierda | Aura verde
    ============================================ */
 .lem-sticker--how {
   width: 170px;
@@ -2527,7 +2523,6 @@ svg { display: block; }
 
 /* ============================================
    👥 PERFILES — Sticker
-   Esquina inferior derecha | Aura marrón
    ============================================ */
 .lem-sticker--profiles {
   width: 170px;
@@ -2547,7 +2542,6 @@ svg { display: block; }
 
 /* ============================================
    💬 TESTIMONIOS — Sticker
-   Esquina inferior izquierda | Aura dorada suave
    ============================================ */
 .lem-sticker--testimonials {
   width: 170px;
@@ -2566,8 +2560,7 @@ svg { display: block; }
 }
 
 /* ============================================
-   🎬 HERO — Mascota PROTAGONISTA (pareja)
-   Derecha inferior | Entrada épica
+   🎬 HERO — Mascota PROTAGONISTA
    ============================================ */
 .lem-mascot--hero {
   width: 300px;
@@ -2584,7 +2577,6 @@ svg { display: block; }
     rgba(201, 165, 102, 0.25) 30%, 
     transparent 65%);
   inset: -15%;
-  animation: auraGlow 5s ease-in-out infinite;
 }
 .lem-mascot--hero img {
   filter: 
@@ -2595,7 +2587,6 @@ svg { display: block; }
 
 /* ============================================
    💎 BENEFITS BANNER — Mascota
-   Dentro del cuadro verde
    ============================================ */
 .lem-mascot--benefits {
   width: 220px;
@@ -2622,7 +2613,6 @@ svg { display: block; }
 
 /* ============================================
    📝 QUIZ — Mascota lateral
-   Izquierda inferior
    ============================================ */
 .lem-mascot--quiz {
   width: 200px;
@@ -2644,8 +2634,6 @@ svg { display: block; }
 /* ============================================
    ANIMACIONES PREMIUM
    ============================================ */
-
-/* Entrada épica del sticker principal del hero */
 @keyframes heroStickerEnter {
   0% {
     opacity: 0;
@@ -2660,8 +2648,6 @@ svg { display: block; }
     transform: translateY(0) translateX(0) rotate(-6deg) scale(1);
   }
 }
-
-/* Entrada de la mascota principal del hero */
 @keyframes mascotHeroEnter {
   0% {
     opacity: 0;
@@ -2676,102 +2662,41 @@ svg { display: block; }
     transform: translateX(0) translateY(0) rotate(0) scale(1);
   }
 }
-
-/* Entrada suave con rebote de stickers secundarios */
 @keyframes stickerEnter {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) rotate(-15deg) scale(0.7);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-5px) rotate(4deg) scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(30px) rotate(-15deg) scale(0.7); }
+  60% { opacity: 1; transform: translateY(-5px) rotate(4deg) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
 }
-
-/* Respiración natural 1 (rotación izquierda) */
 @keyframes breathe1 {
-  0%, 100% { 
-    transform: translateY(0) rotate(-6deg) scale(1);
-  }
-  25% {
-    transform: translateY(-6px) rotate(-4deg) scale(1.01);
-  }
-  50% { 
-    transform: translateY(-12px) rotate(-2deg) scale(1.02);
-  }
-  75% {
-    transform: translateY(-6px) rotate(-4deg) scale(1.01);
-  }
+  0%, 100% { transform: translateY(0) rotate(-6deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(-4deg) scale(1.01); }
+  50% { transform: translateY(-12px) rotate(-2deg) scale(1.02); }
+  75% { transform: translateY(-6px) rotate(-4deg) scale(1.01); }
 }
-
-/* Respiración natural 2 (rotación derecha) */
 @keyframes breathe2 {
-  0%, 100% { 
-    transform: translateY(0) rotate(8deg) scale(1);
-  }
-  25% {
-    transform: translateY(-5px) rotate(6deg) scale(1.01);
-  }
-  50% { 
-    transform: translateY(-11px) rotate(4deg) scale(1.02);
-  }
-  75% {
-    transform: translateY(-5px) rotate(6deg) scale(1.01);
-  }
+  0%, 100% { transform: translateY(0) rotate(8deg) scale(1); }
+  25% { transform: translateY(-5px) rotate(6deg) scale(1.01); }
+  50% { transform: translateY(-11px) rotate(4deg) scale(1.02); }
+  75% { transform: translateY(-5px) rotate(6deg) scale(1.01); }
 }
-
-/* Respiración natural 3 (rotación variada) */
 @keyframes breathe3 {
-  0%, 100% { 
-    transform: translateY(0) rotate(-4deg) scale(1);
-  }
-  33% {
-    transform: translateY(-8px) rotate(0deg) scale(1.015);
-  }
-  66% { 
-    transform: translateY(-4px) rotate(2deg) scale(1);
-  }
+  0%, 100% { transform: translateY(0) rotate(-4deg) scale(1); }
+  33% { transform: translateY(-8px) rotate(0deg) scale(1.015); }
+  66% { transform: translateY(-4px) rotate(2deg) scale(1); }
 }
-
-/* Flotación protagonista Hero */
 @keyframes mascotHeroFloat {
-  0%, 100% { 
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-8px) translateX(-3px) rotate(-1deg);
-  }
-  50% { 
-    transform: translateY(-16px) translateX(0) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-8px) translateX(3px) rotate(1deg);
-  }
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25% { transform: translateY(-8px) translateX(-3px) rotate(-1deg); }
+  50% { transform: translateY(-16px) translateX(0) rotate(0deg); }
+  75% { transform: translateY(-8px) translateX(3px) rotate(1deg); }
 }
-
-/* Flotación Benefits */
 @keyframes mascotBenefitsFloat {
-  0%, 100% { 
-    transform: translateY(0) rotate(0deg);
-  }
-  50% { 
-    transform: translateY(-14px) rotate(2deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
 }
-
-/* Flotación Quiz */
 @keyframes mascotQuizFloat {
-  0%, 100% { 
-    transform: translateY(0) rotate(-5deg);
-  }
-  50% { 
-    transform: translateY(-12px) rotate(-2deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(-2deg); }
 }
 
 /* ============================================
@@ -2791,12 +2716,8 @@ svg { display: block; }
     width: 260px;
     right: 20px;
   }
-  .lem-mascot--benefits {
-    width: 180px;
-  }
-  .lem-mascot--quiz {
-    width: 165px;
-  }
+  .lem-mascot--benefits { width: 180px; }
+  .lem-mascot--quiz { width: 165px; }
 }
 
 /* ============================================
@@ -2812,29 +2733,53 @@ svg { display: block; }
   .lem-sticker--testimonials {
     width: 125px;
   }
-  .lem-sticker--hero-top {
-    top: 120px;
-    left: 20px;
-  }
-  .lem-mascot--hero {
-    width: 220px;
-    right: 10px;
-    bottom: 40px;
-  }
-  .lem-mascot--benefits {
-    width: 160px;
-  }
-  .lem-mascot--quiz {
-    width: 140px;
-    opacity: 0.85;
-  }
+  .lem-sticker--hero-top { top: 120px; left: 20px; }
+  .lem-mascot--hero { width: 220px; right: 10px; bottom: 40px; }
+  .lem-mascot--benefits { width: 160px; }
+  .lem-mascot--quiz { width: 140px; opacity: 0.85; }
 }
 
 /* ============================================
-   RESPONSIVE — Móvil ≤ 768px
+   🔥 RESPONSIVE — Móvil ≤ 768px
+   FIX: HERO SIN HORMIGAS QUE INVADAN
    ============================================ */
 @media (max-width: 768px) {
-  .lem-sticker--hero-top,
+  /* 🚨 HERO: OCULTAR TODAS las hormigas del hero en móvil */
+  .lem-sticker--hero-top {
+    display: none;
+  }
+  .lem-mascot--hero {
+    display: none;
+  }
+  
+  /* Aseguramos que el contenido del hero quede PERFECTAMENTE CENTRADO */
+  .hero__content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta-group,
+  .hero__stats {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero__cta-group {
+    justify-content: center;
+  }
+  
+  .hero__stats {
+    justify-content: center;
+  }
+  
+  /* Stickers de otras secciones: más pequeños y en esquinas */
   .lem-sticker--hashtag,
   .lem-sticker--philosophy,
   .lem-sticker--products,
@@ -2844,10 +2789,6 @@ svg { display: block; }
     width: 90px;
   }
   
-  .lem-sticker--hero-top {
-    top: 95px;
-    left: 12px;
-  }
   .lem-sticker--hashtag {
     bottom: 20px;
     right: 15px;
@@ -2878,16 +2819,6 @@ svg { display: block; }
     opacity: 0.75;
   }
   
-  /* HERO mascota: relative en móvil */
-  .lem-mascot--hero {
-    position: relative;
-    width: 220px;
-    right: auto;
-    bottom: auto;
-    margin: 24px auto 0;
-    display: block;
-  }
-  
   .lem-mascot--benefits {
     width: 115px;
     right: -5px;
@@ -2899,7 +2830,7 @@ svg { display: block; }
     display: none;
   }
   
-  /* Reducir glow en móvil (mejor performance) */
+  /* Auras reducidas para performance móvil */
   .lem-sticker::before,
   .lem-mascot::before {
     inset: -10%;
@@ -2911,7 +2842,6 @@ svg { display: block; }
    RESPONSIVE — Móvil pequeño ≤ 480px
    ============================================ */
 @media (max-width: 480px) {
-  .lem-sticker--hero-top,
   .lem-sticker--hashtag,
   .lem-sticker--philosophy,
   .lem-sticker--products,
@@ -2920,15 +2850,10 @@ svg { display: block; }
   .lem-sticker--testimonials {
     width: 75px;
   }
-  .lem-sticker--hero-top {
-    top: 85px;
-    left: 8px;
-  }
-  .lem-mascot--hero {
-    width: 180px;
-  }
-  .lem-mascot--benefits {
-    width: 100px;
+  .lem-mascot--benefits { width: 100px; }
+  
+  .hero__content {
+    padding: 0 16px;
   }
 }
 
