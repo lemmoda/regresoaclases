@@ -2786,3 +2786,23 @@ svg { display: block; }
   position: relative;
   z-index: 5;
 }
+/* ============================================
+   🎨 FIX: Sticker perfiles VISIBLE al frente
+   (pero sin bloquear clicks a las cards)
+   ============================================ */
+
+/* La hormiga se ve al frente pero NO bloquea */
+.lem-sticker--profiles {
+  z-index: 20 !important;
+  pointer-events: none !important;
+}
+
+/* Aseguramos que la imagen tampoco bloquee */
+.lem-sticker--profiles img {
+  pointer-events: none !important;
+}
+
+/* Las cards mantienen sus clicks intactos */
+.profile-card {
+  pointer-events: auto !important;
+}
