@@ -2333,6 +2333,48 @@ svg { display: block; }
   flex-wrap: wrap;
 }
 /* ============================================
+   🔧 FIX: Profile cards clickeables + Sticker no bloquea
+   ============================================ */
+
+/* Aseguramos que las profile cards estén SIEMPRE al frente y sean clickeables */
+.profile-card {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Los stickers NUNCA deben bloquear clicks */
+.lem-sticker,
+.lem-mascot,
+.lem-sticker *,
+.lem-mascot * {
+  pointer-events: none !important;
+}
+
+/* Aseguramos z-index correcto en la sección de perfiles */
+.profiles {
+  position: relative;
+  z-index: 1;
+}
+
+.profiles .container {
+  position: relative;
+  z-index: 5;
+}
+
+/* Sticker de perfiles: al fondo, sin interferir */
+.lem-sticker--profiles {
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Aseguramos que TODO el grid de perfiles esté al frente */
+.profiles__grid {
+  position: relative;
+  z-index: 10;
+}
+/* ============================================
    🐜 LEM MODA — SISTEMA PREMIUM v5 FINAL
    Centrado perfecto + Hormigas sin invadir
    ============================================ */
