@@ -2334,10 +2334,10 @@ svg { display: block; }
 }
 /* ============================================
    🐜 LEM MODA — STICKERS + PROTAGONISTAS
-   Sistema controlado, sin romper layout
+   Sistema controlado + tamaños optimizados
    ============================================ */
 
-/* Asegurar que las secciones contengan las mascotas */
+/* Asegurar contenedores */
 .hero,
 .hashtag,
 .benefits,
@@ -2350,15 +2350,12 @@ svg { display: block; }
   position: relative;
   overflow: hidden;
 }
-
 .benefits__banner {
   position: relative;
   overflow: hidden;
 }
 
-/* ============================================
-   BASE: STICKERS pequeños (decorativos)
-   ============================================ */
+/* BASE: STICKERS */
 .lem-sticker {
   position: absolute;
   z-index: 3;
@@ -2373,9 +2370,7 @@ svg { display: block; }
   -webkit-user-drag: none;
 }
 
-/* ============================================
-   BASE: MASCOTAS medianas (protagonistas)
-   ============================================ */
+/* BASE: MASCOTAS */
 .lem-mascot {
   position: absolute;
   z-index: 2;
@@ -2391,19 +2386,61 @@ svg { display: block; }
 }
 
 /* ============================================
-   🎬 HERO — Sticker peace-sign
+   STICKERS — Desktop grandes
    ============================================ */
 .lem-sticker--hero-top {
-  width: 85px;
-  top: 110px;
-  left: 6%;
-  transform: rotate(-12deg);
-  filter: drop-shadow(0 8px 15px rgba(78, 139, 42, 0.35));
+  width: 180px;
+  top: 130px;
+  left: 4%;
+  filter: drop-shadow(0 12px 22px rgba(78, 139, 42, 0.35));
   animation: stickerFloat1 5s ease-in-out infinite;
+}
+.lem-sticker--hashtag {
+  width: 190px;
+  top: 40px;
+  right: 6%;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.4));
+  animation: stickerHashtag 6s ease-in-out infinite;
+  z-index: 4;
+}
+.lem-sticker--philosophy {
+  width: 190px;
+  top: 60px;
+  right: 4%;
+  filter: drop-shadow(0 14px 22px rgba(92, 58, 30, 0.3));
+  animation: stickerPhil 6s ease-in-out infinite;
+}
+.lem-sticker--products {
+  width: 180px;
+  top: 70px;
+  left: 4%;
+  filter: drop-shadow(0 12px 22px rgba(201, 165, 102, 0.35));
+  animation: stickerProducts 5.5s ease-in-out infinite;
+}
+.lem-sticker--how {
+  width: 185px;
+  top: 50px;
+  left: 4%;
+  filter: drop-shadow(0 14px 22px rgba(78, 139, 42, 0.3));
+  animation: stickerHow 6.5s ease-in-out infinite;
+}
+.lem-sticker--profiles {
+  width: 180px;
+  top: 60px;
+  right: 4%;
+  filter: drop-shadow(0 14px 22px rgba(92, 58, 30, 0.3));
+  animation: stickerProfiles 5s ease-in-out infinite;
+}
+.lem-sticker--testimonials {
+  width: 175px;
+  top: 55px;
+  left: 5%;
+  filter: drop-shadow(0 12px 20px rgba(201, 165, 102, 0.3));
+  animation: stickerTest 5.5s ease-in-out infinite;
 }
 
 /* ============================================
-   🎬 HERO — Pareja protagonista
+   MASCOTAS grandes
    ============================================ */
 .lem-mascot--hero {
   width: 260px;
@@ -2414,23 +2451,6 @@ svg { display: block; }
   animation: mascotEnter 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards,
              mascotFloat 6s ease-in-out 2.4s infinite;
 }
-
-/* ============================================
-   💚 HASHTAG — Sticker
-   ============================================ */
-.lem-sticker--hashtag {
-  width: 95px;
-  top: 40px;
-  right: 8%;
-  transform: rotate(15deg);
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-  animation: stickerFloat2 6s ease-in-out infinite;
-  z-index: 4;
-}
-
-/* ============================================
-   💎 BENEFITS BANNER — Protagonista
-   ============================================ */
 .lem-mascot--benefits {
   width: 220px;
   right: 10px;
@@ -2439,58 +2459,6 @@ svg { display: block; }
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
   animation: mascotFloatSlow 7s ease-in-out infinite;
 }
-
-/* ============================================
-   🌿 FILOSOFÍA — Sticker
-   ============================================ */
-.lem-sticker--philosophy {
-  width: 95px;
-  top: 60px;
-  right: 6%;
-  transform: rotate(-10deg);
-  filter: drop-shadow(0 10px 18px rgba(92, 58, 30, 0.3));
-  animation: stickerFloat1 6s ease-in-out infinite;
-}
-
-/* ============================================
-   🛍️ PRODUCTOS — Sticker
-   ============================================ */
-.lem-sticker--products {
-  width: 85px;
-  top: 70px;
-  left: 5%;
-  transform: rotate(10deg);
-  filter: drop-shadow(0 10px 18px rgba(201, 165, 102, 0.35));
-  animation: stickerFloat2 5.5s ease-in-out infinite;
-}
-
-/* ============================================
-   ⚙️ CÓMO FUNCIONA — Sticker
-   ============================================ */
-.lem-sticker--how {
-  width: 90px;
-  top: 50px;
-  left: 6%;
-  transform: rotate(-8deg);
-  filter: drop-shadow(0 10px 18px rgba(78, 139, 42, 0.3));
-  animation: stickerFloat1 6.5s ease-in-out infinite;
-}
-
-/* ============================================
-   👥 PERFILES — Sticker
-   ============================================ */
-.lem-sticker--profiles {
-  width: 85px;
-  top: 60px;
-  right: 5%;
-  transform: rotate(12deg);
-  filter: drop-shadow(0 10px 18px rgba(92, 58, 30, 0.3));
-  animation: stickerFloat2 5s ease-in-out infinite;
-}
-
-/* ============================================
-   📝 QUIZ — Protagonista lateral
-   ============================================ */
 .lem-mascot--quiz {
   width: 200px;
   left: 20px;
@@ -2502,63 +2470,11 @@ svg { display: block; }
 }
 
 /* ============================================
-   💬 TESTIMONIOS — Sticker
-   ============================================ */
-.lem-sticker--testimonials {
-  width: 80px;
-  top: 55px;
-  left: 7%;
-  transform: rotate(-14deg);
-  filter: drop-shadow(0 10px 18px rgba(201, 165, 102, 0.3));
-  animation: stickerFloat1 5.5s ease-in-out infinite;
-}
-
-/* ============================================
    ANIMACIONES
    ============================================ */
 @keyframes stickerFloat1 {
   0%, 100% { transform: rotate(-12deg) translateY(0); }
   50%      { transform: rotate(-8deg) translateY(-10px); }
-}
-@keyframes stickerFloat2 {
-  0%, 100% { transform: rotate(12deg) translateY(0); }
-  50%      { transform: rotate(8deg) translateY(-10px); }
-}
-@keyframes mascotEnter {
-  0%   { opacity: 0; transform: translateX(60px) translateY(20px); }
-  100% { opacity: 1; transform: translateX(0) translateY(0); }
-}
-@keyframes mascotFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-14px); }
-}
-@keyframes mascotFloatSlow {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
-}
-@keyframes mascotFloatQuiz {
-  0%, 100% { transform: translateY(-50%) rotate(-5deg); }
-  50%      { transform: translateY(calc(-50% - 12px)) rotate(-2deg); }
-}
-
-/* Aplicar animaciones correctas a stickers rotados */
-.lem-sticker--hashtag {
-  animation-name: stickerHashtag;
-}
-.lem-sticker--philosophy {
-  animation-name: stickerPhil;
-}
-.lem-sticker--products {
-  animation-name: stickerProducts;
-}
-.lem-sticker--how {
-  animation-name: stickerHow;
-}
-.lem-sticker--profiles {
-  animation-name: stickerProfiles;
-}
-.lem-sticker--testimonials {
-  animation-name: stickerTest;
 }
 @keyframes stickerHashtag {
   0%, 100% { transform: rotate(15deg) translateY(0); }
@@ -2584,11 +2500,53 @@ svg { display: block; }
   0%, 100% { transform: rotate(-14deg) translateY(0); }
   50%      { transform: rotate(-10deg) translateY(-10px); }
 }
+@keyframes mascotEnter {
+  0%   { opacity: 0; transform: translateX(60px) translateY(20px); }
+  100% { opacity: 1; transform: translateX(0) translateY(0); }
+}
+@keyframes mascotFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes mascotFloatSlow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes mascotFloatQuiz {
+  0%, 100% { transform: translateY(-50%) rotate(-5deg); }
+  50%      { transform: translateY(calc(-50% - 12px)) rotate(-2deg); }
+}
+
+/* ============================================
+   RESPONSIVE — Laptop ≤ 1200px
+   ============================================ */
+@media (max-width: 1200px) {
+  .lem-sticker--hero-top,
+  .lem-sticker--products,
+  .lem-sticker--how,
+  .lem-sticker--testimonials {
+    width: 160px;
+  }
+  .lem-sticker--hashtag,
+  .lem-sticker--philosophy,
+  .lem-sticker--profiles {
+    width: 165px;
+  }
+}
 
 /* ============================================
    RESPONSIVE — Tablet ≤ 1024px
    ============================================ */
 @media (max-width: 1024px) {
+  .lem-sticker--hero-top,
+  .lem-sticker--products,
+  .lem-sticker--how,
+  .lem-sticker--testimonials,
+  .lem-sticker--hashtag,
+  .lem-sticker--philosophy,
+  .lem-sticker--profiles {
+    width: 140px;
+  }
   .lem-mascot--hero {
     width: 220px;
     right: -10px;
@@ -2602,16 +2560,29 @@ svg { display: block; }
     left: -20px;
     opacity: 0.7;
   }
-  .lem-sticker {
-    width: 70px !important;
-  }
 }
 
 /* ============================================
    RESPONSIVE — Móvil ≤ 768px
    ============================================ */
 @media (max-width: 768px) {
-  /* Protagonista Hero: baja del texto */
+  .lem-sticker--hero-top,
+  .lem-sticker--products,
+  .lem-sticker--how,
+  .lem-sticker--testimonials,
+  .lem-sticker--hashtag,
+  .lem-sticker--philosophy,
+  .lem-sticker--profiles {
+    width: 115px;
+  }
+  .lem-sticker--hero-top {
+    top: 100px;
+    left: 3%;
+  }
+  .lem-sticker--hashtag {
+    top: 25px;
+    right: 3%;
+  }
   .lem-mascot--hero {
     position: relative;
     width: 220px;
@@ -2620,22 +2591,15 @@ svg { display: block; }
     margin: 30px auto 0;
     display: block;
   }
-  /* Protagonista Benefits: se reduce */
   .lem-mascot--benefits {
     width: 140px;
     right: -10px;
     bottom: -10px;
     opacity: 0.9;
   }
-  /* Protagonista Quiz: se oculta */
   .lem-mascot--quiz {
     display: none;
   }
-  /* Stickers: se reducen */
-  .lem-sticker {
-    width: 60px !important;
-  }
-  /* Ocultar algunos stickers para no saturar */
   .lem-sticker--philosophy,
   .lem-sticker--profiles,
   .lem-sticker--testimonials {
@@ -2647,24 +2611,28 @@ svg { display: block; }
    RESPONSIVE — Móvil pequeño ≤ 480px
    ============================================ */
 @media (max-width: 480px) {
+  .lem-sticker--hero-top,
+  .lem-sticker--products,
+  .lem-sticker--how,
+  .lem-sticker--testimonials,
+  .lem-sticker--hashtag,
+  .lem-sticker--philosophy,
+  .lem-sticker--profiles {
+    width: 95px;
+  }
+  .lem-sticker--hero-top {
+    top: 90px;
+    left: 2%;
+  }
+  .lem-sticker--hashtag {
+    top: 15px;
+    right: 2%;
+  }
   .lem-mascot--hero {
     width: 190px;
   }
   .lem-mascot--benefits {
     width: 120px;
-  }
-  .lem-sticker {
-    width: 55px !important;
-  }
-  /* Solo mantener 3 stickers clave en móvil */
-  .lem-sticker--hero-top,
-  .lem-sticker--products,
-  .lem-sticker--how {
-    display: block;
-  }
-  .lem-sticker--hashtag {
-    top: 20px;
-    right: 5%;
   }
 }
 
