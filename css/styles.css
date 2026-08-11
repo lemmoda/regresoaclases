@@ -2692,3 +2692,97 @@ svg { display: block; }
     opacity: 1 !important;
   }
 }
+/* ============================================
+   🚨 FIX FINAL: Profile Cards visibilidad forzada
+   ============================================ */
+
+/* Grid principal */
+.profiles__grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 28px !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* TODAS las cards deben verse IGUAL */
+.profile-card {
+  /* Estructura */
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  z-index: 10 !important;
+  width: 100% !important;
+  padding: 40px 32px !important;
+  
+  /* Visual: fondo y bordes SIEMPRE visibles */
+  background: var(--color-white) !important;
+  border: 2px solid var(--color-gray-200) !important;
+  border-radius: var(--radius-lg) !important;
+  
+  /* Interacción */
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  text-align: left !important;
+  font-family: inherit !important;
+  color: inherit !important;
+  overflow: hidden !important;
+  
+  /* Transición */
+  transition: all var(--transition-med) !important;
+}
+
+/* Card FEATURED (Universitario): borde verde + fondo con tinte verde */
+.profile-card--featured {
+  border-color: var(--color-green) !important;
+  background: linear-gradient(180deg, rgba(111,180,63,0.05), var(--color-white)) !important;
+}
+
+/* Hover funcional para todas */
+.profile-card:hover {
+  border-color: var(--color-green) !important;
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Contenido interno: garantizar visibilidad */
+.profile-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Badge Popular: posición correcta */
+.profile-card__badge {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 5 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  background: var(--color-gold) !important;
+  color: var(--color-white) !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: var(--radius-full) !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+/* Sticker de hormiga: al fondo, sin bloquear */
+.lem-sticker--profiles {
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Section perfiles: contenedor limpio */
+.profiles {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.profiles .container {
+  position: relative;
+  z-index: 5;
+}
